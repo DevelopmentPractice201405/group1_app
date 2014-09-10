@@ -1,10 +1,14 @@
 group1_app
 ====================
-sample_app
-
 メンバー
 -----------
 カネシマ、カワミツ、カワヒラ、シオヒラ、チナ
+
+Heroku
+-------
+
+* [追加機能なしver](https://nameless-springs-7856.herokuapp.com/)
+* [追加機能ありver](https://fierce-peak-9855.herokuapp.com/)
 
 追加機能
 ---------
@@ -52,8 +56,3 @@ Micropostに対して、「いいね」を行える機能。
 * [#364 Active Record Reputation System](http://railscasts.com/episodes/364-active-record-reputation-system?language=ja&view=asciicast)
 * [ActiveRecord Reputation System で「いいね！」機能を導入する](http://easyramble.com/activerecord-reputation-system.html)
 
-Heroku
--------
-
-* [追加機能なしver](https://nameless-springs-7856.herokuapp.com/)
-* [追加機能ありver](https://fierce-peak-9855.herokuapp.com/)
