@@ -1,8 +1,18 @@
 <a href="<%= user_path(current_user) %>">
-  <%= gravatar_for current_user, size: 52 %>
+  <% if session.key?(:twitter_icon) %>
+    <%= image_tag(session[:twitter_icon], :size => "52x52") %>
+  <% else %>
+    <%= gravatar_for current_user, size: 52 %>
+  <% end %>
 </a>
 <h1>
-  <%= current_user.name %>
+  <% if session.key?(:twitter_url) %>
+      <a href="<%= session[:twitter_url] %>">
+          <%= current_user.name %>
+      </a>
+  <% else %>
+    <%= current_user.name %>
+  <% end %>
 </h1>
 <span>
   <%= link_to "view my profile", current_user %>
