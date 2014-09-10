@@ -1,28 +1,13 @@
-== README
+group1_app
+====================
+sample_app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+メンバー
+-----------
+カネシマ、カワミツ、カワヒラ、シオヒラ、チナ
 
-Things you may want to cover:
+追加機能
+---------
+### 投稿位置表示機能 ###
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Micropostに現在位置を付加する機能。
