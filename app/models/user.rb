@@ -49,6 +49,27 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def self.create_with_omniauth(auth)
+      tmp_password = (("a".."z").to_a + ("A".."Z").to_a + (0..9).to_a).shuffle[0..7].join
+      create! do |user|
+          user.provider = auth["provider"]
+          user.uid = auth["uid"]
+          user.name = auth["info"]["nickname"]
+          user.email = User.create_unique_email
+          user.password = tmp_password
+          user.password_confirmation = tmp_password
+      end
+  end
+
+  def self.create_unique_string
+      SecureRandom.uuid
+  end
+   
+    # twitterではemailを取得できないので、適当に一意のemailを生成
+  def self.create_unique_email
+      User.create_unique_string + "@example.com"
+  end
+
   private
 
     def create_remember_token

@@ -6,6 +6,21 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "Micropost created!"
+      puts "============================================"
+      puts session[:oauth_token]
+      puts session[:oauth_token_secret]
+      puts params[:twitter][:flag]
+      puts "============================================"
+      if params[:twitter][:flag] == 'yes'
+          client = Twitter::REST::Client.new do |config|
+              config.consumer_key        = ENV['TWITTER_KEY']
+              config.consumer_secret     = ENV['TWITTER_SECRET']
+              config.access_token        = session[:oauth_token]
+              config.access_token_secret = session[:oauth_token_secret]
+          end
+          puts params[:micropost][:content]
+          client.update(params[:micropost][:content])
+      end
       redirect_to root_url
     else
       @feed_items = []
@@ -22,7 +37,7 @@ class MicropostsController < ApplicationController
  private
 
     def micropost_params
-      params.require(:micropost).permit(:content, :locate, :image)
+      params.require(:micropost).permit(:content, :twitter, :locate, :image)
     end
 
     def correct_user
