@@ -3,6 +3,7 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
     <label>位置情報</label><%= f.text_field :locate %>
+    <label>画像投稿</label> <%= f.file_field :image %>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
