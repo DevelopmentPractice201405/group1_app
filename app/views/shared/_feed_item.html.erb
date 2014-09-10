@@ -15,6 +15,11 @@
         </a>
     <% end %>
     </span>
+    <span class="content">
+         <%= pluralize feed_item.reputation_for(:votes).to_i, "vote" %>
+      |  <%= link_to "up", vote_micropost_path(feed_item, type: "up"), method: "post" %>
+      | <%= link_to "down", vote_micropost_path(feed_item, type: "down"), method: "post" %>
+    </span>
     <span class="timestamp">
         Posted <%= time_ago_in_words(feed_item.created_at) %> ago. <%= feed_item.locate %>
     </span>
