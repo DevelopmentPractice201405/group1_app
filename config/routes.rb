@@ -26,6 +26,8 @@ SampleApp::Application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#twitter_create'
   delete '/signout' => 'sessions#twitter_destroy', as: :twitter_signout
 
+  mount API => '/'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
