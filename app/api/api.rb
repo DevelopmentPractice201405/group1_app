@@ -22,11 +22,17 @@ class API < Grape::API
 
         desc "マイクロポストを投稿する"
         params do
+            requires :id, type: Integer
             requires :content, type: String
         end
         post do
+            puts params
+            p = {}
+            p[:content] = params[:content]
+            # id で指定されたユーザーを取得
+            user = User.find(params[:id])
             # MicropostをDBに格納する処理
-            @micropost = current_user.microposts.build(params[:content])
+            @micropost = user.microposts.build(p)
             if ! @micropost.save
                 error! 
             end
