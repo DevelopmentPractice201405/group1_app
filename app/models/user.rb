@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
     def create_uid
         self.provider = "sample_app"
         begin
-            self.uid = SecureRandom.random_number(1000000)
+            self.uid = SecureRandom.random_number(1000000).to_s
         end while self.class.exists?(uid: uid)
     end
 end
